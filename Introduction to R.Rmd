@@ -9,3 +9,17 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction to vectors
+
+vectors are the main data structure in R. Learn more about
+
+* data structures
+* Vectors
+
+```{r}
+names <-  c('alice','john','jochonia','hesus')
+ages <- c(23,10,17,23)
+print(names)
+length(names)
+```
+
