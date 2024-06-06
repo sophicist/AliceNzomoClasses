@@ -14,11 +14,23 @@ knitr::opts_chunk$set(echo = TRUE)
 vectors are the main data structure in R. Learn more about
 
 * data structures
-* Vectors
+
+
+# Vectors
+
+
+```{r}
+10+34 # primitives -  numbers
+FALSE #- Boolean
+"alice" # strings
+
+```
+
 
 ```{r}
 names <-  c('alice','john','jochonia','hesus')
 ages <- c(23,10,17,23)
+truth <- c(FALSE,FALSE,TRUE)
 print(names)
 length(names)
 # A Vector is an Array
@@ -26,5 +38,45 @@ length(names)
 # ALL values in R  are vectors
 v1<-[1,2,3,4,5]
 
+
+
+```{r}
+names(ages) = c('age1','age2',"age3","age4") # naming the vectors
+ages['age4']
+sum(ages)
+sum(truth)
+```
+## factors
+
+```{r}
+height <- c("high",'low','mid','low','high')
+height1 <- factor(height,levels = c('high','mid','low'))
+print(height1)
+sort(height1)
+height[3]# extracting some level of informaion
+
+```
+
+```{r}
+ages[ages>20] # this a subset of our data based on some logic
+```
+# Matrix / Matrices
+
+```{r}
+micro_econ <- c(70,87,40)
+labor_econ <- c(40,37,50)
+set_theory <- c(89,76,99)
+
+lessons <-  matrix(c(micro_econ,labor_econ,set_theory),nrow = 3,byrow = TRUE)
+rownames(lessons) <- c('micro_econ','labor_econ','set_theory')
+colnames(lessons) <- c('first_year','second year','third year')
+
+lessons
+```
+```{r}
+lessons1 <- rbind(lessons,colSums(lessons))
+lessons2 <- cbind(lessons1,rowMeans(lessons))
+lessons2
+```
 
 
