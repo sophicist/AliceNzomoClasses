@@ -36,8 +36,8 @@ length(names)
 # A Vector is an Array
 # All elements in a vector are of the same data type,ex.Numeric and Character
 # ALL values in R  are vectors
-v1<-[1,2,3,4,5]
-
+v1<-c(1,2,3,4,5)
+```
 
 
 ```{r}
@@ -46,6 +46,7 @@ ages['age4']
 sum(ages)
 sum(truth)
 ```
+
 ## factors
 
 ```{r}
@@ -60,6 +61,7 @@ height[3]# extracting some level of informaion
 ```{r}
 ages[ages>20] # this a subset of our data based on some logic
 ```
+
 # Matrix / Matrices
 
 ```{r}
@@ -78,5 +80,72 @@ lessons1 <- rbind(lessons,colSums(lessons))
 lessons2 <- cbind(lessons1,rowMeans(lessons))
 lessons2
 ```
+# Lists
 
+```{r}
+x = list(micro_econ,height1)
+x[[2]] # ndexing from the list  - extract the specific item  -  indexing starts at 1
+```
+
+```{r}
+guests = c('Alice','john','eric')
+gift   = c('cake','meat','music')
+money  = c(2000,5000,500)
+attendance = c(T,F,T)
+speeches   = factor(guests,levels = c('Alice','eric','john'))
+
+birthday = list(guests = guests,gifts = gift,contribution = money,attend = attendance,speech = speeches)
+length(birthday)
+```
+
+```{r}
+birthday[2:4]#slicing
+birthday[5]
+birthday$speech
+
+```
+# DATAFRAMES
+
+```{r}
+
+birthday <-  data.frame(birthday)
+birthday
+```
+
+```{r}
+birthday$gifts# extracting one column from a dataframe
+birthday[1,2:3] # on the left we have the rows index and on right we have the columns index
+
+```
+# dataset ( its a dataframe and typically as a table)
+
+```{r}
+mtcars
+min(mtcars$mpg)
+max(mtcars$mpg)
+mean(mtcars$mpg)
+median(mtcars$mpg)
+```
+
+# descriptive statistics 
+
+```{r}
+hist(mtcars$mpg)
+# descriptive statistics 
+# measures of central tendency: mean,median,mode, IQR
+# measures of dispersionand kurtosis: standard deviation, variance, IQR
+# visualizations -  Histograms, barplots, piecharts,boxplots, stacked barplots, scatter plots etc
+```
+# control flows
+
+```{r}
+# for loop
+# conditionals
+```
+
+# tidyverse and dplyr
+
+```{r}
+# data analysis and pipe in R
+```
 
