@@ -121,10 +121,20 @@ birthday[1,2:3] # on the left we have the rows index and on right we have the co
 
 ```{r}
 mtcars
+# measures of central tendency
 min(mtcars$mpg)
 max(mtcars$mpg)
 mean(mtcars$mpg)
 median(mtcars$mpg)
+mode(mtcars$mpg)
+# measures of dispersion  -  spread of the data
+IQR(mtcars$mpg)
+var(mtcars$mpg)
+sd(mtcars$mpg)
+```
+```{r}
+# normal distributions
+mean+-1std (65%),2Std(95%),3std(99)
 ```
 
 # descriptive statistics 
@@ -133,9 +143,21 @@ median(mtcars$mpg)
 hist(mtcars$mpg)
 # descriptive statistics 
 # measures of central tendency: mean,median,mode, IQR
-# measures of dispersionand kurtosis: standard deviation, variance, IQR
+# measures of dispersion and kurtosis: standard deviation, variance, IQR
 # visualizations -  Histograms, barplots, piecharts,boxplots, stacked barplots, scatter plots etc
 ```
+
+```{r}
+library(ggplot2)
+head(mtcars)
+
+ggplot(mtcars,aes(y =mpg ))+geom_boxplot()+
+  labs(title = "Box plot")+
+  theme_classic()
+```
+
+
+
 # control flows
 
 ```{r}
