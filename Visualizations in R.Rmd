@@ -1,0 +1,45 @@
+---
+title: "Visualizations in R"
+author: "john"
+date: "2024-07-18"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,warnings = F,message = F)
+```
+
+# Visualizations using GGPLOT
+# cntr + alt + m
+
+```{r}
+library(readxl)
+library(janitor)
+oil<- read_excel("Kenyan Oil prices.xlsx") %>% clean_names()
+
+
+```
+
+## Univariate visualizations -  one column
+
+```{r}
+head(oil)
+# numeric columns you use box plots and histograms
+library(ggplot2)
+ggplot(oil,aes(x = price_per_barell))+geom_histogram(fill = "#926897")+
+  labs(title = "Histogram of price per barell")
+
+ggplot(oil,aes(x = price_per_barell))+geom_boxplot(fill = "#926897")+
+  labs(title = "Boxplot of price per barell")
+
+ggplot(oil,aes(x = "",y = price_per_barell))+geom_jitter(fill = "#926897")+
+  labs(title = "Boxplot of price per barell")
+```
+# Bivariate analysis and visualization
+
+# pull the changes from github
+# look for a dataset and downlaod it
+# build the univariate graphs
+# push the changes to github 
