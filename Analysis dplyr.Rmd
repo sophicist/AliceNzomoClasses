@@ -1,0 +1,134 @@
+---
+title: "analysis"
+author: "Alice Nzomo"
+date: "2024-08-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F,warnings=F,message=F)
+```
+
+# histogram
+
+```{r}
+library(readr)
+
+df <- read_csv("Credit Score  Data.csv")
+head(df)
+
+
+
+```
+```{r}
+x=df$Age
+hist(x,main="histogram of age",col="purple")
+```
+```{r}
+library(ggplot2)
+ggplot(df,aes(Income))+geom_histogram(binwidth = 0.5)
+```
+#pipes in R using dplyr
+```{r}
+library(tidyverse)
+df %>%select(Gender,Income) %>% #select extract one or more column()
+  filter(Gender=="Female") %>% #filter extracts subset of data depending on a number of    conditions
+  ggplot(aes(x=Gender,y=Income))+geom_bar(stat="identity")
+```
+```{r}
+```
+
+
+```{r}
+d in dplyr stands for data frame while plyr is a package used to work with data set and data frames
+functions include:select(),filter(),mutate(),group_by(),summarize(),arrange()
+```
+#mutate()used in addition of new variables
+```{r}
+df%>%mutate(d,+3=income +age)
+```
+
+
+
+
+
+#sample.n and sample()
+For taking random specimen
+```{r}
+
+```
+#Group by
+```{r}
+library(gapminder)
+
+```
+```{r}
+gapminder
+write.csv(gapminder,"gapminder.csv")
+```
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(exp=mean(lifeExp))
+```
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(exp=mean(lifeExp)) %>% 
+  ggplot(aes(x=continent,y=exp,fill="blue"))+geom_bar(stat ="identity")+
+  labs(title="Average life expectancy")
+```
+#Group by
+```{r}
+gapminder
+write.csv(gapminder,"gapminder.csv")
+```
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarise(exp=mean(lifeExp))
+```
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarise(exp=mean(lifeExp)) %>% 
+  ggplot(aes(x=continent,y=exp,fill="red"))+geom_bar(stat = "identity")+labs(title = "Averagee life expectancy")
+
+```
+#Head
+```{r}
+gapminder %>% head()
+```
+#sort and arrange by variable
+```{r}
+gapminder %>% #head(3)
+  arrange(lifeExp)
+```
+#Filter
+```{r}
+gapminder %>% filter(country =="Rwanda")
+```
+
+#Select
+```{r}
+gapminder %>% select(country,year,lifeExp)
+```
+
+
+
+```{r}
+gapminder %>% group_by(continent) %>% tally()
+#table(gapminder$continent)
+```
+
+
+
+
+
+
+
+
+
+
+
+#summarise
