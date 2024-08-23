@@ -123,6 +123,40 @@ gapminder %>% group_by(continent) %>% tally()
 
 
 
+#Functions and Conditionals
+```{r}
+ages<-c(10,20,35,40,55,65,80,90,25,15)
+age_bracket<-c()
+for (age in ages) {
+  if(age<18){x="young"}
+  else if(age<40){x="mid"}
+  else{x="old"}
+  age_bracket<-c(age_bracket,x)
+  
+}
+age_bracket
+```
+```{r}
+gapminder %>% 
+  mutate(period=ifelse(year<1950,"old",
+                       ifelse(year<1970,"golden",
+                              ifelse(year<2000,"vintage","millenium"))),
+         population=pop/1000000) %>% 
+  select(continent,year,period,population) %>% 
+  group_by(continent,period) %>% 
+  summarise(avg=mean(population))
+```
+#visualize the data
+```{r}
+library(ggthemes)
+gapminder %>% 
+  filter(year==2007) %>% 
+  ggplot(aes(x=lifeExp,y=gdpPercap,color=continent))+
+  geom_point()+
+  facet_wrap(~continent,ncol=5)+
+  theme_hc()
+
+```
 
 
 
@@ -131,4 +165,3 @@ gapminder %>% group_by(continent) %>% tally()
 
 
 
-#summarise
